@@ -5,7 +5,7 @@
 # INDEX
 1. MySQL supports a few different index types. The most important are BTREE(balanced tree) and HASH. 
 2. Clustered index already covered above.
-3. Secondary index: Needed for ordering data other than physical ordering via clustered index. Secondary index can have its own order and is agnostic to base table order. Leaf nodes of secondary Index has references/pointers to base table data.
+3. Secondary index: Needed for ordering data other than physical ordering via clustered index. Secondary index can have its own order and is agnostic to base table order. Leaf nodes of secondary Index has references/pointers to clustered index PK which adds one level of indirection to access acutal data(via clustered index).
 4. Balanced tree (tree depth is equal at every position; the distance between root node and leaf nodes is the same everywhere.)
     1. logic ordering of data is achieved in index (side effect is keeping reductant data)
         1. Layered 
