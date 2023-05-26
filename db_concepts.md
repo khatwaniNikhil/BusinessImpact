@@ -10,7 +10,7 @@
 
 3. Secondary index: It is a physically separate structure that references base data. Needed for ordering data other than physical ordering via clustered index. Secondary index can have its own order and is agnostic to base table order. Leaf nodes of secondary Index has references/pointers to clustered index PK which adds one level of indirection to access acutal data(via clustered index).
 
-![](https://github.com/khatwaniNikhil/DatabaseTuning/blob/main/images/non_clustered_index.png))
+![](https://github.com/khatwaniNikhil/DatabaseTuning/blob/main/images/non_clustered_index.png)
 
 4. Balanced tree (tree depth is equal at every position; the distance between root node and leaf nodes is the same everywhere.)
     1. logic ordering of data is achieved in index (side effect is keeping reductant data)
