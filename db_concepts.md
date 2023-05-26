@@ -1,5 +1,12 @@
+# Data Storage
+1. Heap: No ordering of table records during storage. Will lead to table scan without any explicit index.
+2. Clustered table/clustered index: Ordering of records during storage and implicit index over PK is created for fast lookup. Clustered index leaf nodes contains the actual table data. Therefore only one clustered index per table. Innodb created clustered index.
+
 # INDEX
-1. Balanced tree (tree depth is equal at every position; the distance between root node and leaf nodes is the same everywhere.)
+1. MySQL supports a few different index types. The most important are BTREE(balanced tree) and HASH. 
+2. Clustered index already covered above.
+3. Secondary index: Needed for ordering data other than physical ordering via clustered index. Secondary index can have its own order and is agnostic to base table order. Leaf nodes of secondary Index has references/pointers to base table data.
+4. Balanced tree (tree depth is equal at every position; the distance between root node and leaf nodes is the same everywhere.)
     1. logic ordering of data is achieved in index (side effect is keeping reductant data)
         1. Layered 
             1. Root node 
@@ -9,7 +16,7 @@
             1. Start from bottom/leaf nodes, create intermediate node with multiple values pointing to multiple leaf nodes(points to largest value in the pointed leaf nodes for efficient searching.
             2. Keep adding layers of intermediate node until reached to root node 
         3. Logarithmic scalability …with each depth no of elements grows very fast. In real world, upto five depth index tree contain million of rows
-2. Clustered versus secondary indexes
+5. Clustered versus secondary indexes
     1. PK based clustered index already explained above
     2. Secondary index are “index on a clustered index”.
     3. Other indexes created later —each node contains indexed column as well as primary key values also. After first level search happens in this other index, second level search happens in clustering index basis PK to find actual data basis columns queries.
@@ -17,20 +24,6 @@
     5. Index data structures which are not co-located with the data.
     6. Other indexes created later on table refer to this primary index for data table. Clustering index acts as table store (in contrast to heap tables). You can also treat is as index that happens to have all table columns.
 
-# POWERS OF INDEXING (use-the-index-luke.com)
-1. B-Tree Very efficient balanced binary tree traversal
-    1. Balanced —access all nodes in same no of steps
-    2. logarithmic growth of the tree depth —
-        1. (the tree depth grows very slowly compared to the number of leaf nodes)
-        2. Real world indexes with millions of records have a tree depth of four or five
-2. Clustering - the index leaf nodes store the indexed columns in an ordered fashion
-    1. index leaf nodes store the indexed columns in an ordered fashion so that similar values are stored next to each other
-    2. index clustering gotchas(effect of physical distribution)
-        1. But in case of too many leaf nodes scan, similar rows look over disk might have diff cost associated to them depending upon they are located on single disk block or diff blocks.
-        2. Adding more columns from where clause to index will avoid separate disk blocks lookup (filter predicate will become an access predicate)
-3. Pipelined order by
-    1. ordering of data via index leaf nodes make “order by”  clause execution fast (no need to explicit sort)
-    2. Pipelined —it is also able to return the first results without processing all input data, very fast in case of pagination queries
 
 # LINKS
 1. https://use-the-index-luke.com
