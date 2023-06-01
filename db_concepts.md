@@ -1,6 +1,17 @@
 # Data Storage
 1. Heap: No ordering of table records during storage. Will lead to table scan without any explicit index.
-2. Clustered table/clustered index: Way to represent base data as a whole. Ordering of records during storage and implicit index over PK is created for fast lookup. Clustered index leaf nodes contains the actual table data. Therefore only one clustered index per table. Innodb created clustered index.
+2. Clustered table/clustered index: 
+   1.  "clustered" means data is clustered/colocated with index(at the leaf nodes) based on PK column.
+   2.  ordering of records during storage and implicit index over PK is created for fast lookup. 
+   3.  Since clustered index leaf nodes contains the actual table data. Therefore only one clustered index per table. Innodb created clustered index.
+3. Storage abstractions
+   1. "hard disk block" - 512 bytes
+   2. "RAM page"  - 4K
+   3. "rdbms page" - 16K (default db page size for mysql)
+   4. "mysql extent" - multiple page space in order of 1MB increments 1MB extent = 64 db pages 
+   5. "mysql segment" - multiple extents
+  
+  ![](https://github.com/khatwaniNikhil/DatabaseTuning/blob/main/images/mysq_storage_abstractions.png)
 
 # INDEX
 1. MySQL supports a few different index types. The most important are BTREE(balanced tree) and HASH. 
@@ -30,6 +41,10 @@
     5. Index data structures which are not co-located with the data.
     6. Other indexes created later on table refer to this primary index for data table. Clustering index acts as table store (in contrast to heap tables). You can also treat is as index that happens to have all table columns.
 
+# Random PK value - Disadvantages
+1.  bad idea to choose a primary (and clustered) key which has  random values like a UUID or GUID,
+2.  page fragmentation
+3.  B+tree indexes having to be rebalanced 
 
 # LINKS
 1. https://use-the-index-luke.com
@@ -44,3 +59,7 @@
 10. https://ducmanhphan.github.io/2020-04-12-Understanding-about-clustered-index-in-RDBMS/
 11. https://asktom.oracle.com/pls/apex/f?p=100:11:0::::P11_QUESTION_ID:1032431852141
 12. https://www.red-gate.com/simple-talk/databases/sql-server/learn/effective-clustered-indexes/
+13. https://www.percona.com/blog/innodb-page-merging-and-page-splitting/
+14. https://www.percona.com/blog/innodb-double-write/
+15. https://www.codeo.co.za/blog/database-performance-if-youre-not-first-youre-last
+16. https://vladmihalcea.com/clustered-index/
