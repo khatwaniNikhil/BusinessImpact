@@ -1,6 +1,7 @@
 # References
 1. https://vladmihalcea.com/optimistic-vs-pessimistic-locking/
 2. https://www.linkedin.com/pulse/read-committed-pessimistic-locking-distributed-sql-databases-pachot/
+3. https://hackernoon.com/how-to-solve-race-conditions-in-a-booking-system
 
 # Concepts
 1. Isolation Level(I in ACID) == concept
