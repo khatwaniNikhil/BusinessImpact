@@ -11,6 +11,9 @@ https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/best_practises_isolat
 #### Isolation levels and locks
 https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/isolation_level_and_locks.md
 
+#### Pitfalls_of_isolation_levels_in_distributed_databases.md
+https://github.com/khatwaniNikhil/short_summary_of_tech_blogs/blob/main/Pitfalls_of_isolation_levels_in_distributed_databases.md
+
 # Mysql Cache
 https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/mysql_cache.md
 
