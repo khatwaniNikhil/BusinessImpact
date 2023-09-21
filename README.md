@@ -33,5 +33,8 @@ https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/index_stats.md
 # SAAS Use case - customisable views of data on the fly
 https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/uc_datatable_design.md
 
+# innodb locks
+https://github.com/khatwaniNikhil/innodb-locks
+
 
 
