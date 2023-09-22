@@ -36,5 +36,8 @@ https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/uc_datatable_design.m
 # innodb locks
 https://github.com/khatwaniNikhil/innodb-locks
 
+# mysql-8 using-skip-locked-and-nowait-to-handle-hot-rows
+https://dev.mysql.com/blog-archive/mysql-8-0-1-using-skip-locked-and-nowait-to-handle-hot-rows/
+
 
 
