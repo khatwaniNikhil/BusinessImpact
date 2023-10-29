@@ -1,5 +1,6 @@
 # Concepts
 https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/db_concepts.md
+https://github.com/khatwaniNikhil/RDBMS_learning/blob/main/index_performance.md
 
 # Choosing Right database
 https://github.com/khatwaniNikhil/choosing_right_database
